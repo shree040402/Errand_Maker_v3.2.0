@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errand Maker | Professional Edition</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="vintage-brew">
+
+    <div id="password-overlay" class="auth-layer" style="display: none;">
+        <div class="auth-card">
+            <h2>Errand Maker</h2>
+            <p>Authorized Access Only</p>
+            <input type="password" id="password-input" placeholder="Enter Access Key">
+            <button id="auth-btn" class="circle-btn primary-btn"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <div id="app-workspace">
+        
+        <header class="top-bar">
+            <div class="brand">
+                <div class="icon-container">
+                    <i class="fa-solid fa-plane-departure" id="brand-icon"></i>
+                </div>
+                <h1 id="app-title">Errand Maker</h1>
+            </div>
+
+            <div class="lever-container" role="switch" aria-checked="false" aria-label="Toggle Money Calculator" tabindex="0" id="mode-lever">
+                <div class="lever-track"></div>
+                <div class="lever-knob"></div>
+            </div>
+
+            <div class="toolbar">
+                <button id="btn-add-note" class="circle-btn" title="Add New Note (Max 4)">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+                <button id="btn-remove-note" class="circle-btn" title="Remove Last Note">
+                    <i class="fa-solid fa-minus"></i>
+                </button>
+                
+                <button id="btn-settings" class="circle-btn" title="System Settings">
+                    <i class="fa-solid fa-gear" id="icon-settings"></i>
+                </button>
+
+                <button id="btn-calc-edit" class="circle-btn primary-btn hidden" title="Edit Configuration">
+                    <i class="fa-solid fa-pencil"></i>
+                </button>
+            </div>
+            
+            <div id="unified-panel" class="anchor-panel hidden">
+                <div class="panel-content">
+                    </div>
+            </div>
+        </header>
+
+        <div id="viewport-stack">
+            
+            <main id="page-errand" class="page-view active-view">
+                <div id="notes-grid" class="grid-container grid-mode-auto">
+                    </div>
+            </main>
+
+            <main id="page-calculator" class="page-view hidden-view">
+                <div class="calculator-container">
+                    <div class="calc-header">
+                        <h2>Key Performance Indicators (KPI)</h2>
+                        <div class="calc-controls">
+                             <span id="edit-mode-indicator" class="hidden">Edit Mode On</span>
+                        </div>
+                    </div>
+
+                    <section class="mega-chart-section">
+                        <div class="table-wrapper">
+                            <table id="mega-chart-table">
+                                <thead>
+                                    <tr>
+                                        <th style="text-align:left; padding-left:20px;">KPI Name</th>
+                                        <th>Min</th>
+                                        <th>Target</th>
+                                        <th>Exceed</th>
+                                        <th>Weightage</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="mega-chart-body">
+                                    </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <div class="mid-section-grid">
+                        <section class="deduction-panel">
+                            <h3>ADM / RL</h3>
+                            <div id="deduction-adm-list" class="deduction-list"></div>
+                        </section>
+                        
+                        <section class="deduction-panel">
+                            <h3>Unplanned Leaves</h3>
+                            <div id="deduction-leave-list" class="deduction-list"></div>
+                        </section>
+                    </div>
+
+                    <section class="score-card-section">
+                        <h3>My Score Card</h3>
+                        <div class="score-grid" id="score-card-grid">
+                            </div>
+
+                        <div class="calc-footer">
+                            <div class="inputs-row">
+                                <div class="input-group">
+                                    <label>ADM / RL Count</label>
+                                    <input type="number" id="input-adm-count" min="0" value="0">
+                                </div>
+                                <div class="input-group">
+                                    <label>Unplanned Leaves</label>
+                                    <input type="number" id="input-leave-count" min="0" value="0">
+                                </div>
+                            </div>
+                            
+                            <div class="status-strip" id="calc-status-display" role="status" aria-live="polite">
+                                <div class="stat-segment">Subtotal: <span>₹0</span></div>
+                                <div class="stat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                <div class="stat-segment">Deduction: <span>None</span></div>
+                                <div class="stat-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                                <div class="stat-segment final">Final: <span>₹0</span></div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+
+        </div> 
+        
+        <footer class="app-footer">
+            <p>&copy; <span id="year-display"></span> Errand Maker • Engineering by <span class="engineer-name">Bhushan</span></p>
+            <div class="version-badge" id="app-badge">Version 3.2.0</div>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
